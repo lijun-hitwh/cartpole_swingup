@@ -56,13 +56,13 @@ uv run play Cartpole-Swingup --agent zero
 uv run play Cartpole-Swingup --agent random
 ```
 
-# Phase 2: Training
+### Phase 2: Training
 Train the reinforcement learning policy. We recommend using a high number of parallel environments for faster convergence.
 ```
 uv run train Cartpole-Swingup --env.scene.num-envs 4096 --agent.max-iterations 500
 ```
 
-# Phase 3: Evaluation
+### Phase 3: Evaluation
 Once training is complete, visualize the results by loading your trained checkpoint.
 ```
 # Load from a local path
