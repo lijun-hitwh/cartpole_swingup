@@ -1,0 +1,39 @@
+<mujoco model="cartpole">
+  <compiler angle="radian" coordinate="local" inertiafromgeom="true"/>
+  
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" rgb1=".1 .2 .3" rgb2=".2 .3 .4" width="300" height="300"/>
+    <material name="grid" texture="grid" texrepeat="8 8" reflectance=".2"/>
+    <material name="slider_mat" rgba="0.9 0.6 0.2 1"/>
+    <material name="cart_mat" rgba="0.3 0.5 0.7 1"/>
+    <material name="pole_mat" rgba="0.1 0.1 0.3 1"/>
+  </asset>
+
+  <worldbody>
+    <light name="light" pos="0 0 6"/>
+    <camera name="fixed" pos="0 -4 1" zaxis="0 -1 0"/>
+    <camera name="lookatcart" mode="targetbody" target="cart" pos="0 -2 2"/>
+    <geom name="floor" pos="0 0 -.05" size="4 4 .2" type="plane" material="grid"/>
+    <body name="slider" pos="0 0 2">
+      <geom name="slider_geom" type="box" size="0.015 4 0.015" material="slider_mat"/>
+      <body name="cart" pos="0 0 0">
+        <joint name="slider_to_cart" type="slide" axis="0 1 0" range="-4 4" limited="true" solreflimit=".08 1" damping="0.01"/>
+        <geom name="cart_geom" type="box" size="0.1 0.125 0.1" material="cart_mat" mass="1"/>
+        <body name="pole" pos="0.12 0 0">
+          <joint name="cart_to_pole" type="hinge" axis="1 0 0" damping="0.01"/>
+          <geom name="pole_geom" type="box" size="0.02 0.03 0.5" pos="0 0 0.47" material="pole_mat" mass=".1"/>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <contact>
+    <exclude body1="slider" body2="cart"/>
+    <exclude body1="cart" body2="pole"/>
+    <exclude body1="pole" body2="slider"/>
+  </contact>
+
+  <actuator>
+    <motor name="slide" joint="slider_to_cart" gear="10" ctrllimited="true" ctrlrange="-1 1"/>
+  </actuator>
+</mujoco>
