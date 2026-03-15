@@ -10,7 +10,7 @@ from .env_cfgs import cartpole_swingup_env_cfg
 from .rl_cfg import cartpole_ppo_runner_cfg
 
 register_mjlab_task(
-  task_id="Mjlab-Cartpole-Swingup-V1",
+  task_id="Cartpole-Swingup",
   env_cfg=cartpole_swingup_env_cfg(),
   play_env_cfg=cartpole_swingup_env_cfg(play=True),
   rl_cfg=cartpole_ppo_runner_cfg(),

@@ -103,8 +103,8 @@ def _make_env_cfg() -> ManagerBasedRlEnvCfg:
     origin_type=ViewerConfig.OriginType.WORLD,
     entity_name="cartpole",
     distance=15.0,
-    elevation=-20.0,
-    azimuth=0.0,
+    elevation=-25.0,
+    azimuth=180.0,
   )
 
   sim: SimulationCfg = SimulationCfg(
