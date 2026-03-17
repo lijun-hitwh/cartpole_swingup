@@ -19,7 +19,7 @@
       <body name="cart" pos="0 0 0">
         <joint name="slider_to_cart" type="slide" axis="0 1 0" range="-4 4" limited="true" solreflimit=".08 1" damping="0.01"/>
         <geom name="cart_geom" type="box" size="0.1 0.125 0.1" material="cart_mat" mass="1"/>
-        <body name="pole" pos="0.12 0 0">
+        <body name="pole" pos="0.12 0 0" euler="3.14159 0 0">
           <joint name="cart_to_pole" type="hinge" axis="1 0 0" damping="0.01"/>
           <geom name="pole_geom" type="box" size="0.02 0.03 0.5" pos="0 0 0.47" material="pole_mat" mass="1."/>
         </body>

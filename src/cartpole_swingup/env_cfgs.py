@@ -75,7 +75,7 @@ def cartpole_smooth_reward(
   # Pole angle cosine.
   hinge_angle = asset.data.joint_pos[:, hinge_cfg.joint_ids].squeeze(-1)
   pole_cos = torch.cos(hinge_angle)
-  upright = (pole_cos + 1) / 2
+  upright = (1 - pole_cos) / 2
 
   # Cart position.
   cart_pos = asset.data.joint_pos[:, slide_cfg.joint_ids].squeeze(-1)

@@ -39,7 +39,7 @@ CARTPOLE_ARTICULATION = EntityArticulationInfoCfg(
 
 SWINGUP_INIT = EntityCfg.InitialStateCfg(
   pos=(0.0, 0.0, 0.0),
-  joint_pos={"slider_to_cart": 0.0, "cart_to_pole": math.pi,},
+  joint_pos={"slider_to_cart": 0.0, "cart_to_pole": 0.0,},
   joint_vel={".*": 0.0},
 )
 
